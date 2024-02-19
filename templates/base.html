@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	
+    <title>{% block title %} {% endblock %}</title>
+  </head>
+  <body>
+		<div class="sidebar" style="width:16%; padding: 20px">			
+			<div class="sidebar-expand-lg">
+				<ul class="nav nav-primary">	
+					
+				<img src="{{url_for('static', filename='pic/person.png')}}" alt="salasad" class="responsive" style="margin-left:60px; margin-top:50px; width:100px">		
+				
+							<br>
+							<h3 class="responsive" style="color:white; font-family: garamond; margin-left:30px">Administrator</h3>
+							<br><br><br>
+							<div class="content"> 
+						<!--DASHBOARD-->
+							<a href="{{ url_for('dashboard1')}}"style="color:white; font-family:courier; font-size:18px">  <i style="color:white" class="fas fa-home"></i>Dashboard</a><br><br>	
+	
+
+						<!--OFFICIALS-->
+							<a href="{{ url_for ('officials')}}" style="color:white; font-family:courier; font-size:18px">Barangay Officials and Staff</a>
+             
+							<br><br>
+							<a href="{{ url_for ('resident')}}" style="color:white; font-family:courier; font-size:18px"> Resident Information</a><br><br>
+              
+						<!--CERTICATES-->
+							<a href="{{ url_for ('brgyclearance')}}" style="color:white; font-family:courier; font-size:18px">Barangay Clearance</a>  
+							<br><br>
+							
+							
+
+						
+						<!--ABOUT-->
+							<a href="{{ url_for('about')}}" style="color:white; font-family:courier; font-size:18px">About</a><br><br>
+
+							
+						<!--LOGOUT-->
+							<a href="{{ url_for('logout')}}" style="color:white; font-family:courier; font-size:18px" onclick="return confirm('Are you sure you want to logout?');" >Logout</a>
+				</div>								
+					</ul>
+			</div>		
+		
+	</div>
+							<div class="main-header">
+						<nav class="navbar navbar-header navbar-expand-lg" style="background-color:#128223">
+							<h2 style="margin-left:35%; color:white; font-family: garamond; font-size:30px">Barangay Resident Record Management Web Application</h2>
+						</nav></div>	
+
+    <div class="container">
+	{% for message in get_flashed_messages() %}
+        <div class="alert alert-danger" style="margin-left:100px">{{ message }}</div>
+    {% endfor %}
+        {% block content %} {% endblock %}
+    </div>
+</div>
+	</div>
+	</body>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

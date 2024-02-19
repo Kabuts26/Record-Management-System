@@ -1,0 +1,97 @@
+{% extends 'base.html'%}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+	<link rel="icon" href="{{ url_for('static', filename='assets/img/logo1.jpg') }} type="image/x-icon"/>
+
+
+	<!-- Fonts and icons -->
+	<script src="static/assets/js/plugin/webfont/webfont.min.js"></script>
+	<script>
+		WebFont.load({
+			google: {"families":["Lato:300,400,700,900"]},
+			custom: {"families":["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"], urls: ['assets/css/fonts.min.css']},
+			active: function() {
+				sessionStorage.fonts = true;
+			}
+		});
+	</script>
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/atlantis.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/custom.css') }}">
+	
+	<title>Edit Official</title>
+	
+</head>
+<body>
+
+		
+                 <div class="panel-header" style="color:white; margin: 0 -19%; padding: 0 15%">
+					<div class="panel-header" style="color:black; margin: 0 -25%; padding: 0 15%">
+					<div class="page-inner">
+						<div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
+							<div>
+								<h2 class="text-black fw-bold" style="font-size:45px;font-family:arial; margin-left:240px ;margin-top:30px"><b>EDIT BARANGAY OFFICIAL AND STAFF</b></h2>
+							</div>
+						</div>
+					</div>
+				</div>	
+				</div>
+					
+                        <div class="edit" style="margin-left:100px; margin-top:40px; margin-right:-130px; border: 3px solid black; padding:20px">
+                            <form method="POST">
+												<label><b>Fullname</b></label>
+												<input type="text" style="border: 3px solid black" class="form-control" id="name" placeholder="Enter Fullname" name="name" required
+												value="{{ request.form['name'] or post['name']}}">
+												</input>
+											
+												<label><b>Chairmanship</b></label>
+												<select class="form-control"  style="border: 3px solid black"id="pillSelect" required name="chair" value = "{{ request.form['chair'] or post['chair']}}">
+													<option disabled selected>Select Official Chairmanship</option>
+													<option value="Presiding Officer">Presiding Officer</option>
+													<option value="Committee on Peace & Order">Committee on Peace & Order</option>
+													<option value="Committee on Health">Committee on Health</option>
+													<option value="Committee on Education">Committee on Education</option>
+													<option value="Committee on Rules">Committee on Rules</option>
+													<option value="Committee on Infra">Committee on Infra</option>
+													<option value="Committee on Solid Waaste">Committee on Solid Waaste</option>
+													<option value="Committee on Sports">Committee on Sports</option>
+													<option value="No Chairmanship">No Chairmanship</option>
+												</select>
+									
+												<label><b>Position</b></label>
+												<select class="form-control" style="border: 3px solid black" id="pillSelect" required name="position" value = "{{ request.form['position']or post['position'] }}">
+													<option disabled selected>Select Official Position</option>
+													<option value="Captain">Captain</option>
+													<option value="Councilor 1">Councilor 1</option>
+													<option value="Councilor 2">Councilor 2</option>
+													<option value="Councilor 3">Councilor 3</option>
+													<option value="Councilor 4">Councilor 4</option>
+													<option value="Councilor 5">Councilor 5</option>
+													<option value="Councilor 6">Councilor 6</option>
+													<option value="Councilor 7">Councilor 7</option>
+													<option value="SK Chairman">SK Chairman</option>
+													<option value="Secretary">Secretary</option>
+													<option value="Treasurer">Treasurer</option>
+												</select>
+
+												<label><b>Contact Number</b></label>
+												<input type="number" style="border: 3px solid black" class="form-control" placeholder="Enter Contact" name="contact"  required
+												value = "{{ request.form['contact'] or post['contact']  }}">
+									
+												<br>
+												<input type="hidden" id="off_id" name="id">
+												
+												<button type="submit" class="btn btn-primary" style="margin-left:380px; width: 300px">Update</button>
+									
+							</form>
+						</div>
+						
+</body>
+</html>
+
+				
+{% endblock %}

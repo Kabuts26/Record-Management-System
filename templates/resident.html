@@ -1,0 +1,296 @@
+{% extends 'base.html'%}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+<link rel="icon" href="assets/img/logo1.jpg" type="image/x-icon"/>
+
+	<!-- Fonts and icons -->
+	<script src="assets/js/plugin/webfont/webfont.min.js"></script>
+	<script>
+		WebFont.load({
+			google: {"families":["Lato:300,400,700,900"]},
+			custom: {"families":["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"], urls: ['assets/css/fonts.min.css']},
+			active: function() {
+				sessionStorage.fonts = true;
+			}
+		});
+	</script>
+
+	<!-- CSS Files -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/atlantis.css">
+	<link rel="stylesheet" href="assets/css/custom.css">
+
+<style>
+    #loading-container{
+        position: absolute;
+        display: flex;
+        height: 100%;
+        width: 100%;
+        background-color: white;
+        z-index: 9999;
+    }
+    #loading-screen{
+        position: absolute;
+        left: 48%;
+        top: 48%;
+        z-index: 9999;
+        text-align: center;
+    }
+
+</style>
+	<title>Resident Information -  Barangay Management System</title>
+</head>
+<body>
+	
+		<div class="main-panel">
+		
+			<div class="content">
+			
+				<div class="panel-header" style="color:white; margin: 0 -19%; padding: 0 15%">
+					<div class="panel-header" style="color:black; margin: 0 -25%; padding: 0 15%">
+					<div class="page-inner">
+						<div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
+							<div>
+								<h2 class="text-black fw-bold" style="font-size:45px;font-family:arial; margin-left:240px ;margin-top:30px"><b>RESIDENTS INFORMATION</b></h2>
+								<div class="card-tools">
+												<a href="#add" data-toggle="modal" class="btn btn-info btn-border btn-round btn-sm" style="margin-left:1230px; width:200px">
+													<i>Add Resident</i>
+												</a>
+											</div>
+							</div>
+						</div>
+					</div>
+				</div>	
+				</div>
+				<div class="page-inner" style="margin-left:90px;margin-top: 10px; width:106%">
+					<div class="row mt--2">
+						<div class="col-md-12"  style=" margin-top:30px">
+							<div class="card">
+								<div class="card-body" style ="border: 3px solid black">
+									<div class="d-flex flex-wrap pb-2 justify-content-between">
+										<div class="px-2 pb-2 pb-md-0 text-center">
+											<img src="static/pic/logo2.png" class="img-fluid" style="width:120px">
+										</div>
+										<div class="px-2 pb-2 pb-md-0 text-center">
+											<h2 class="fw-bold mt-3">Barangay Salasad</h2>
+											<h4 class="fw-bold mt-3"><i>Magdalena, Laguna</i></h4>
+										</div>
+										<img src="static/pic/salasad.png" class="img-fluid" style="width:120px">
+									</div>
+								</div>
+							</div>
+                           <div class="card"  style =" margin-top:5px">
+								<div class="card-body"  style="border:3px solid black; margin-top:1px">
+									<div class ="table-responsive">
+									<div class="card-title"><b>Residents Information</b></div>
+										<table class="table table-striped">
+											<thead>
+												<tr>
+													<th scope="col">Fullname</th>
+													<th scope="col">Birthday</th>
+													<th scope="col">Age</th>								
+													
+                                                    <th scope="col">Gender</th>
+													<th scope="col">Purok</th> 
+													<th scope="col">Contact No.</th> 
+													<th scope="col">Address </th> 
+													<th scope="col">Action</th>
+                                                  
+												</tr>
+											</thead>
+											<tbody>
+												{% for post in resident %}
+													<tr>
+														
+                                                        <td>{{ post['name'] }}</td>
+														<td>{{ post['bdate'] }}</td>
+														<td>{{ post['age'] }}</td>
+														<td>{{ post['gender'] }}</td>
+														<td>{{ post['purok'] }}</td>
+														<td>{{ post['contact'] }}</td>
+														<td>{{ post['address'] }}</td>
+                                                       
+														<td>
+																	<a type="button" href="{{ url_for('editRes', id=post['id']) }}" class="btn btn-link btn-primary" 
+																		title="Edit Resident" onclick="editResident(this)" >
+																		<span style="color: white"><i>edit</i></span>
+																	</a>
+																	
+																	<a type="button" data-toggle="tooltip" href="{{ url_for('deleteRes', id=post['id']) }}" onclick="return confirm('Are you sure you want to delete this official?');" class="btn btn-link btn-danger" data-original-title="Remove">
+																		<span style="color: white"><i>delete</i></span>
+																	</a>
+																	
+																	<a type="button" href="{{ url_for('view_res', id=post['id']) }}" class="btn btn-link btn-primary" 
+																		title="View Resident" onclick="viewResident(this)" >
+																		<span style="color: white"><i>view</i></span>
+																	</a>
+																	
+																	
+																</td>
+                                                       
+														
+													</tr>
+													{% endfor %}
+													
+											</tbody>
+											
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel"><b>NEW RESIDENT INFORMATION FORM</b></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form method="POST" enctype="multipart/form-data">
+                            <input type="hidden" name="size" value="1000000">
+                            <div class="row">
+                                <div class="col-md-4">                                                                  
+                                    <div class="form-group">
+                                         <label>Email Address</label>
+                                         <input type="email" class="form-control" placeholder="Enter Email" name="email"  required>
+                                    </div>
+									
+                                    <div class="form-group">
+                                        <label>Citizenship</label>
+                                        <input type="text" class="form-control" name="citizenship" placeholder="Enter citizenship" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label>Fullname</label>
+                                                <input type="text" class="form-control" placeholder="Enter Fullname" name="name" required>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="row">
+                                     
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label>Place of Birth</label>
+                                                <input type="text" class="form-control" placeholder="Enter Birthplace" name="bplace" required>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label>Birthdate</label>
+                                                <input type="date" class="form-control" placeholder="Enter Birthdate" name="bdate" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label>Age</label>
+                                                <input type="number" class="form-control" placeholder="Enter Age" min="1" name="age" required>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                <label>Civil Status</label>
+                                                <select class="form-control" name="cstatus" id="cstatus">
+                                                    <option disabled selected>Select Civil Status</option>
+                                                    <option value="Single">Single</option>
+                                                    <option value="Married">Married</option>
+                                                    <option value="Widow">Widow</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label>Gender</label>
+                                                <select class="form-control" required name="gender" id="gender">
+                                                    <option disabled selected value="">Select Gender</option>
+                                                    <option value="Male">Male</option>
+                                                    <option value="Female">Female</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label>Purok</label>
+                                                <select class="form-control" required name="purok" id="purok">
+                                                    <option disabled selected>Select Purok Name</option>
+													<option value="Purok 1">Purok 1</option>
+													<option value="Purok 2">Purok 2</option>
+													<option value="Purok 3">Purok 3</option>
+													<option value="Purok 4">Purok 4</option>
+													<option value="Purok 5">Purok 5</option>
+													<option value="Purok 6">Purok 6</option>
+													<option value="Purok 7">Purok 7</option>
+													<option value="None">None</option>
+													
+                                                    
+                                                </select>
+                                            </div>
+                                        </div>
+                                       
+                                       
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col">
+											<div class="form-group">
+												<label>Contact Number</label>
+												<input type="number" class="form-control" name="contact" placeholder="Enter Contact Number" required>
+											</div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label>Occupation</label>
+                                                <input type="text" class="form-control" placeholder="Enter Occupation" name="occupation" >
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Address</label>
+                                        <textarea class="form-control" name="address" required placeholder="Enter Address"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+			
+		</div>
+		
+	</div>
+	
+    <script src="static/assets/js/plugin/datatables/datatables.min.js"></script>
+    
+	    <script>
+        $(document).ready(function() {
+            $('#residenttable').DataTable();
+        });
+    </script>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,152 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+h1{
+	color: black;
+	font-family: stencil;
+	text-align: center;
+	font-size: 60px;
+	padding: 20px;
+    text-shadow: 0 0 5px white, 0 0 5px white,
+	0 0 5px white, 0 0 5px white, 0 0 5px white;
+}
+h2 {
+	color: white;
+	margin: 0 0 20px 0;
+    font-weight: 300;
+    font-size: 28px;
+    font-family: Century;
+}
+
+img {
+	border-radius: 50%;;
+	height: 200px;
+	weight: 300px;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+ 
+}
+
+.logo:hover{
+    -webkit-animation: spin 5s infinite;
+    animation: spin 5s infinite;	
+}
+@-webkit-keyframes spin{
+      from {
+        -webkit-transform: rotateY(0deg);
+      }
+      to {
+        -webkit-transform: rotateY(-360deg);
+      }
+    }
+    
+    @keyframes spin{
+      from {
+        -moz-transform: rotateY(0deg);
+        -ms-transform: rotateY(0deg);
+        transform: rotateY(0deg);
+      }
+      
+      to {
+        -moz-transform: rotateY(-360deg);
+        -ms-transform: rotateY(-360deg);
+        transform: rotateY(-360deg);
+      }
+    }
+	
+	
+.login-form {
+  background: #128223;
+  width: 400px;
+  height: 460px;
+  margin: 25px auto;
+  border-radius: 10px;
+  font-family: Serif;
+  outline: 1px white solid;
+}
+.login-form h2 {
+  padding: 15px 35px 0 35px;
+  font-weight: 300;
+}
+.login-form .content {
+  padding: 10px;
+  text-align: center;
+}
+.login-form .input-field {
+  padding: 12px 5px;
+}
+.login-form .input-field input {
+  font-size: 16px;
+  font-family: 'Rubik', sans-serif;
+  width: 100%;
+  padding: 10px 1px;
+  border: 0;
+  border-bottom: 1px solid #747474;
+  outline: none;
+}
+
+.login-form a.link {
+  text-decoration: none;
+  color: #e3e1e1;
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-top: 20px;
+}
+.login-form .action {
+  display: flex;
+  
+}
+.login-form .action button{
+  width: 50%;
+  border: none;
+  padding: 18px;
+  background: #03c04a;
+  color:white;
+  font-family: 'Rubik', sans-serif;
+  cursor: pointer;
+  text-transform: uppercase;
+
+  letter-spacing: 0.2px;
+  outline: 0;
+}
+
+.login-form button:hover {
+  background: #0dd156;
+}
+
+.login-form .link:hover {
+  color: white;
+}
+
+a{
+color: #8cd3ff ;
+}
+
+a:hover{
+color: #58b9f5;
+}
+
+label{
+color: white;
+}
+
+.inputbox {
+	border-radius: 5px;
+}
+
+.buttonbox{
+	margin-left: 25%;
+	font-size: 16px;
+	border-radius: 20px;
+	width: 50%;
+	
+}
+
+
+
+

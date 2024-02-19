@@ -1,0 +1,82 @@
+
+{% block content %} 
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+	<title>Sign-in Form</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+
+<style>
+.login-form:before {
+	background-image: url('static/pic/hall.jpg');
+	background-size: 100% 100%;
+	content: "";
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: -1;
+	display: block;
+	filter: blur(3px);
+}
+
+</style>
+</head>
+
+<body>
+	<!--HEADING-->
+	<h1>{% block title %}Barangay Resident Record Management Web Application{% endblock %}</h1>
+	
+	<!--HEADING-->
+	<div class="logo">
+	<img src="{{url_for('static', filename='pic/salasad.png')}}" align="middle" />
+	</div>
+	
+	<!--LOGIN FORM-->
+	<div class="login-form">
+	<form method= "post" >
+		<h2 align="center" style="font-family: Serif">Sign in</h2>
+	<center>
+    <div class="container">
+	{% for message in get_flashed_messages() %}
+        <div class="alert alert-danger" >{{ message }}</div>
+    {% endfor %}
+        
+    </div>
+	</center>
+		<div class="content">
+		<div class="input-field">
+        <input type="text"  name = "username" placeholder="Username" 
+		value="{{ request.form['username'] }}" class="inputbox" required></input>
+		</div>
+		
+		<div class="input-field">
+		<input type="password" name = "password" placeholder="Password"
+		value="{{ request.form['password'] }}"  class="inputbox" required></input>
+		
+		<br><br>
+    
+		<div class="action">
+		<button type="submit" name="login" value="Login" class="buttonbox"><b>Login</b></button>
+		</div>
+		<br>
+
+		
+		<label>No existing account?</label>
+		<label> <a href="{{ url_for('register')}}">Register</a></label>
+		</div>  
+		
+		<a href="#" class="link">Forgot Your Password?</a>
+		
+		</div>
+	</form>
+	</div>
+	
+	
+
+</body>
+</html>
+{% endblock %}

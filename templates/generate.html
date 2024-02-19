@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	
+	<title>GENERATE CLEARANCE</title>
+	<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+</head>
+<body>
+
+
+		<div class="main-panel">
+			<div class="content">
+				
+					<div class="page-inner"  style="color:black">
+						<div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
+							<div>
+								<h2 class="text-black fw-bold" style="font-size:45px;font-family:arial; margin-left:80px ;margin-top:30px"><b>GENERATE CERTIFICATE</b></h2>
+								<div class="card-tools">
+											<button class="btn btn-info btn-border btn-round btn-sm" onclick="printDiv('printThis')" style="margin-left:1050px; width:200px">
+											<i>Print Certificate</i></button>
+										</div>
+							</div>
+						</div>
+					</div>
+				
+					<div class="page-inner" style="margin-left:90px;margin-top: 35px; width:106%">
+					<div class="row mt--2">
+						<div class="col-md-12">
+                            <div class="card" style ="border: 3px solid black">
+								<div class="card-body m-5" id="printThis">
+                                     <div class="d-flex flex-wrap justify-content-around" style="border-bottom:1px solid red">
+                                        <div class="text-center">
+                                            <img src="{{url_for('static', filename='pic/logo2.png')}}" alt="salasad" class="responsive" style="padding-left:40px">	
+										</div>
+										<div class="text-center">
+                                            <h3 class="mb-0">Republic of the Philippines</h3>
+                                            <h3 class="mb-0">Province of Laguna</h3>
+											<h3 class="mb-0">Magdalena</h3>
+											<h1 class="fw-bold mb-0">Barangay Salasad</i></h2>
+											<h1 class="mb-0"> </h1>
+											
+											
+											
+                                            
+										</div>
+                                        <div class="text-center">
+                                           <img src="{{url_for('static', filename='pic/salasad.png')}}" alt="salasad" class="responsive" style="padding-left:40px">
+										</div>
+									</div><br><br>
+									
+                                    <div class="row mt-2">
+								
+                                        <div class="col-md-9"  style="margin-left:120px">
+                                            <div class="text-center">
+                                                <h2 class="mt-4 fw-bold"><center>OFFICE OF THE BARANGAY CAPTAIN</center></h2>
+                                            </div>
+                                            <div class="text-center">
+                                                <h1 class="mt-4 fw-bold mb-5">BARANGAY CLEARANCE</h1>
+                                            </div>
+                                            <h2 class="mt-5">TO WHOM IT MAY CONCERN:</h2>
+                                            <h2 class="mt-3" style="text-indent: 40px;">This is to certify that {{ name }}<span class="fw-bold" style="font-size:25px" ></span>, Of 
+                                            <span class="fw-bold" style="font-size:25px"><?= ucwords($brgy) ?></span> whose signature and thumb marks and community tax passed the routinary <b>"IDENTIFICATION AND VERIFICATION"</b> from the Sangguniang Barangay.</h2>
+                                            <h2 class="mt-3" style="text-indent: 40px;">Remarks : __________________________________________</h2>
+											<h2 class="mt-3" style="text-indent: 40px;">PURPOSE:</h2>
+												<table style="width:80%; margin-left:50px">
+												  <tr>
+													<td style="width:80px">  </td>
+													<td>Local Payment</td> 
+													<td style="width:80px">  </td>
+													<td>Business Permit</td>
+												  </tr>
+												  <tr>
+													<td>   </td>
+													<td>For abroad</td>
+													<td>   </td>
+													<td>License</td>
+												  </tr>
+												  
+												  <tr>
+													<td>   </td>
+													<td>Information</td>
+													<td>   </td>
+													<td>For Bank Purposes</td>
+												  </tr>
+												</table>
+											<h2 class="mt-3" style="text-indent: 40px;">Issued upon request of the above name for whatever legal purpose this may serve.</h2>
+                                            <h2 class="mt-5" style="text-indent: 40px;">Issued this <span class="fw-bold" id="current_date" style="font-size:25px">
+											<script>date = new Date();year = date.getFullYear();month = date.getMonth() + 1;day = date.getDate();document.getElementById("current_date").innerHTML = month + "/" + day + "/" + year;</script>
+											</span></h2>
+                                            <h3 class="text-uppercase" style="margin-top:100px; margin-left:100px"><u>{{name}}</u></h3>
+											<h5 class="text-uppercase" style="margin-top:10px; margin-left:135px">Signature</h5>
+											    <div class="border mb-3" style="height:130px; width:200px; float:right; margin-right:100px" >
+                                                    <p class="mt-5 mb-8 pt-5"><center>Left Thumb Mark</center></p>
+												</div>
+												<div class="border mb-3" style="height:130px; width:200px; float: left; margin-left:280px">
+													<p class="mt-5 mb-8 pt-5"><center>Right Thumb Mark</center></p>
+												</div>	
+                                        </div>
+										
+                                        <div class="col-md-12">
+                                           
+                                            <div class="p-3 text-left">
+                                                <h2>OR NO. :__________ </h2>
+                                                <h2>CTC NO. :__________ </h2>
+												
+											 <div class="p-3 text-right mr-3">
+                                                <h2 class="fw-bold mb-0 text-uppercase" style="margin-right:27px">{{captain}}</h2>
+                                                <p class="mr-3">PUNONG BARANGAY</p>
+                                            </div>
+                                            </div>
+											<!--<p>Note :  This Clearance is valid within 60 days only and not valid without Barangay Officials Seal.  </p>-->
+                                        </div>
+                                       
+                                    </div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+           
+
+			
+		</div>
+		
+	</div>
+	
+    <script>
+            function openModal(){
+                $('#pment').modal('show');
+            }
+
+            function printDiv(divName) {
+                var printContents = document.getElementById(divName).innerHTML;
+                var originalContents = document.body.innerHTML;
+
+                document.body.innerHTML = printContents;
+
+                window.print();
+
+                document.body.innerHTML = originalContents;
+            }
+    </script>
+	
+</body>
+</html>
+{% endblock %}

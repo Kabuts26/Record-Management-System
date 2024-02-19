@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+<link rel="icon" href="static/assets/img/logo1.jpg" type="image/x-icon"/>
+
+	<!-- Fonts and icons -->
+	<script src="static/assets/js/plugin/webfont/webfont.min.js"></script>
+	<script>
+		WebFont.load({
+			google: {"families":["Lato:300,400,700,900"]},
+			custom: {"families":["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"], urls: ['assets/css/fonts.min.css']},
+			active: function() {
+				sessionStorage.fonts = true;
+			}
+		});
+	</script>
+
+	<!-- CSS Files -->
+	<link rel="stylesheet" href="static/assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="static/assets/css/atlantis.css">
+	<link rel="stylesheet" href="static/assets/css/custom.css">
+
+<style>
+    #loading-container{
+        position: absolute;
+        display: flex;
+        height: 100%;
+        width: 100%;
+        background-color: white;
+        z-index: 9999;
+    }
+    #loading-screen{
+        position: absolute;
+        left: 48%;
+        top: 48%;
+        z-index: 9999;
+        text-align: center;
+    }
+
+</style>
+	<title>Total Seniors</title>
+</head>
+<body >
+		<div class="main-panel">
+			<div class="content">
+				<div class="panel-header" style="color:black; margin: 0 -25%; padding: 0 15%">
+					<div class="page-inner">
+						<div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
+							<div>
+								<h2 class="text-black fw-bold" style="font-size:45px;font-family:arial; margin-left:180px;margin-top:30px"><b>Total Seniors</br></h2>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="page-inner" style="margin-left:90px;margin-top: 10px; width:106%">
+					<div class="row mt--2">
+						<div class="col-md-12"  style=" margin-top:30px">
+							<div class="card">
+								<div class="card-body" style ="outline-style: solid; outline-color:black;">
+									<div class="d-flex flex-wrap pb-2 justify-content-between">
+										<div class="px-2 pb-2 pb-md-0 text-center">
+											<img src="static/pic/logo2.png" class="img-fluid" style="width:120px">
+										</div>
+										<div class="px-2 pb-2 pb-md-0 text-center">
+											<h2 class="fw-bold mt-3">Barangay Salasad</h2>
+											<h4 class="fw-bold mt-3"><i>Magdalena, Laguna</i></h4>
+										</div>
+										<img src="static/pic/salasad.png" class="img-fluid" style="width:120px">
+									</div>
+								</div>
+							</div>
+							<!------------------------------>
+							<div class="card"  style =" margin-top:5px">
+									<div class="card-body"  style="border:3px solid black; margin-top:1px">
+									<div class="card-title"><b>Total Number of Seniors</b></div>
+									<div class ="table-responsive">
+										<table class="table table-striped">
+											<thead>
+												<tr>
+													<th scope="col">Fullname</th>
+													<th scope="col">Email</th>
+													<th scope="col">Birthdate</th>	
+													<th scope="col">Age</th>
+													<th scope="col">Civil Status</th>
+													<th scope="col">Gender</th>
+													<th scope="col">Purok</th>
+													
+												</tr>
+											</thead>
+											<tbody>
+												{% for post in resident %}
+														<tr>
+															<td>{{ post['name'] }}</td>
+															<td>{{ post['email'] }}</td>
+															<td>{{ post['bdate'] }}</td>
+															<td>{{ post['age'] }}</td>
+															<td>{{ post['cstatus'] }}</td>
+															<td>{{ post['gender'] }}</td>
+															<td>{{ post['purok'] }}</td>
+																
+															
+														</tr>
+														{% endfor %}
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+			
+		</div>
+		
+	</div>
+	<?php include 'templates/footer.php' ?>
+</body>
+</html>
+{% endblock %}

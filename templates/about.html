@@ -1,0 +1,95 @@
+{% extends 'base.html'%}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+<link rel="icon" href="{{ url_for('static', filename='assets/img/logo1.jpg') }} type="image/x-icon"/>
+
+
+	<!-- Fonts and icons -->
+	<script src="static/assets/js/plugin/webfont/webfont.min.js"></script>
+	<script>
+		WebFont.load({
+			google: {"families":["Lato:300,400,700,900"]},
+			custom: {"families":["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"], urls: ['assets/css/fonts.min.css']},
+			active: function() {
+				sessionStorage.fonts = true;
+			}
+		});
+	</script>
+
+	<!-- CSS Files -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/atlantis.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/custom.css') }}">
+
+</head>
+<body>
+				<div class="panel-header" style="color:black; margin: 0 -25%; padding: 0 15%">
+					<div class="page-inner">
+						<div class="d-flex align-items-left align-items-md-left flex-column flex-md-row">
+							<div>
+								<h2 class="text-black fw-bold" style="font-size:55px;font-family:broadway; margin-left:580px;margin-top:30px">---VANGUARD---</h2>
+							</div>
+						</div>
+					</div>
+				</div>		
+	
+		<!-- IMAGES-->
+	<table style="margin-top:30px; margin-left:130px; width: 100%; border: 3px solid black;">
+	<div class ="table-responsive">
+		<tr>
+			<td><img src="{{url_for('static', filename='pic/badulis.jpg')}}" style="margin:20px; border-radius: 50%; margin-bottom:8px; height: 230px; width: 230px">
+				<p style="margin-left:30px; font-size:20px"><br><b> Charles William Badulis</b>
+				<p style="margin-left:60px">Leader/Programmer</p>
+				<p style="margin-left:45px">kianbadulis3@gmail.com</p>
+				<p style="margin-left:80px">09455946014</p></td>
+		
+			<td><img src="{{url_for('static', filename='pic/rubiales.jpg')}}" style="border-radius: 50%; height: 230px; width: 230px; margin-right:25px">
+				<p style="margin-left:50px; font-size:20px"><br><b> Allysa Rubiales</b>
+				<p style="margin-left:90px">Designer</p>
+				<p style="margin-left:25px">allysarubiales2@gmail.com</p>
+				<p style="margin-left:80px">09109998752</p></td>
+			
+	
+			<td><img src="{{url_for('static', filename='pic/sapo.jpg')}}" style="border-radius: 50%; height: 230px; width: 230px">
+				<p style="margin-left:50px; font-size:20px"><br><b> Al Japhet Sapo</b>
+				<p style="margin-left:75px">Programmer</p>
+				<p style="margin-left:30px">cagayatjericho@gmail.com</p>
+				<p style="margin-left:80px">09206987196</p></td>
+	
+		</tr>
+	</div>
+	</table>
+	
+	<table style="margin-top:50px; margin-left:200px; width: 85%; border: 3px solid black;">
+	<div class ="table-responsive">
+  <tr>
+	<td><img src="{{url_for('static', filename='pic/dawat.jpg')}}" style="border-radius: 50%; height: 230px; width: 230px; margin-left:130px; margin-top: 20px;">
+				<p style="margin-left:150px; font-size:20px"><br><b> Roseanne Dawat</b>
+				<p style="margin-left:200px">Designer</p>
+				<p style="margin-left:140px">rosesdawat@gmail.com</p>
+				<p style="margin-left:180px">0995021279</p></td>
+	
+	<td><img src="{{url_for('static', filename='pic/cagayat.jpg')}}" style="border-radius: 50%; height: 230px; width: 230px; margin-top: 20px" >
+				<p style="margin-left:50px; font-size:20px"><br><b> Jericho Cagayat</b>
+				<p style="margin-left:80px">Programmer</p>
+				<p style="margin-left:30px">cagayatjericho@gmail.com</p>
+				<p style="margin-left:80px">09206987196</p></td>
+				
+	</div>
+  </tr>
+  </table>
+
+	
+	<br><br>
+	<tfoot style="text-align:center">
+	<div>
+	<h5 align="center" style="padding:50px; margin-left:250px">This website is for educational purposes and intended for Project fulfillment in Integrative Programming Technologies</h5>
+	</div>
+	</tfoot>
+	</body>
+</html>
+{% endblock %}

@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+{% block content %}
+<html lang="en">
+<html lang="en">
+<head>
+	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+	<link rel="icon" href="{{ url_for('static', filename='assets/img/logo1.jpg') }} type="image/x-icon"/>
+
+
+	<!-- Fonts and icons -->
+	<script src="static/assets/js/plugin/webfont/webfont.min.js"></script>
+	<script>
+		WebFont.load({
+			google: {"families":["Lato:300,400,700,900"]},
+			custom: {"families":["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"], urls: ['assets/css/fonts.min.css']},
+			active: function() {
+				sessionStorage.fonts = true;
+			}
+		});
+	</script>
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/atlantis.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/custom.css') }}">
+	
+	<title>View Resident</title>
+	
+</head>
+<body>
+				<div class="panel-header" style="color:black; margin: 0 -25%; padding: 0 15%">
+					<div class="page-inner">
+						<div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
+							<div>
+								<h2 class="text-black fw-bold" style="font-size:45px;font-family:broadway; margin-left:200px ;margin-top:30px">VIEW RESIDENT</h2>
+							</div>
+						</div>
+					</div>
+				</div>	
+                       <div class="edit" style="margin-left:100px; margin-top:40px; margin-right:-130px; border: 3px solid black; padding:20px">
+                            <form method="POST">
+                                <div class="col-md-15">
+                                    <div class="row">
+                                        <div class="col">
+										<div class="form-group">
+                                                <label>Email Address</label>
+                                                <input type="email" style="border: 3px solid black" class="form-control"  placeholder="Enter Email" name="email" id="email" value="{{ request.form['email'] or post['email'] }}" readonly>
+                                            </div>
+                                    <div class="form-group">
+                                        <label>Citizenship</label>
+                                        <input type="text" style="border: 3px solid black" class="form-control" name="citizenship" id="citizenship" placeholder="Enter citizenship" value="{{ request.form['citizenship'] or post['citizenship'] }}" readonly>
+                                    </div>
+                                            <div class="form-group">
+                                                <label>Fullname</label>
+                                                <input type="text" style="border: 3px solid black" class="form-control" placeholder="Enter Fullname" name="name" value="{{ request.form['name']or post['name']  }}" readonly>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="row">
+                                       
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label>Place of Birth</label>
+                                                <input type="text" style="border: 3px solid black" class="form-control" placeholder="Enter Birthplace" name="bplace" id="bplace" value="{{ request.form['bplace'] or post['bplace'] }}"readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label>Birthdate</label>
+                                                <input type="date" style="border: 3px solid black" class="form-control" placeholder="Enter Birthdate" name="bdate" id="bdate" value="{{ request.form['bdate'] or post['bdate'] }}" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label>Age</label>
+                                                <input type="number" style="border: 3px solid black" class="form-control" placeholder="Enter Age" min="1" name="age" id="age" value="{{ request.form['age'] or post['age'] }}" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                <label>Civil Status</label>
+                                                <select class="form-control" style="border: 3px solid black" readonly name="cstatus" id="cstatus" value="{{ request.form['cstatus'] or post['cstatus']}}">
+                                                    <option disabled selected>Select Civil Status</option>
+                                                    <option value="Single">Single</option>
+                                                    <option value="Married">Married</option>
+                                                    <option value="Widow">Widow</option>
+													
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label>Gender</label>
+                                                <select class="form-control"  style="border: 3px solid black"readonly name="gender" id="gender" value="request.form['gender'] or post['gender']}}">
+                                                    <option disabled selected >Select Gender</option>
+                                                    <option value="Male">Male</option>
+                                                    <option value="Female">Female</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label>Purok</label>
+                                                <select class="form-control" style="border: 3px solid black" readonly name="purok" id="purok" value="{{ request.form['purok'] or post['purok'] }}">
+                                                    <option disabled selected>Select Purok Name</option>
+                                                    <option value="Purok 1">Purok 1</option>
+													<option value="Purok 2">Purok 2</option>
+													<option value="Purok 3">Purok 3</option>
+													<option value="Purok 4">Purok 4</option>
+													<option value="Purok 5">Purok 5</option>
+													<option value="Purok 6">Purok 6</option>
+													<option value="Purok 7">Purok 7</option>
+													<option value="None">None</option>
+													
+                                                </select>
+                                            </div>
+                                        </div>
+                                       
+                                       
+                                    </div>
+                                    
+                                    <div class="row">
+                                       <div class="col">
+											<div class="form-group">
+												<label>Contact Number</label>
+												<input type="number" style="border: 3px solid black" class="form-control" name="contact" readonly placeholder="Enter Contact Number" value="{{ request.form['contact'] or post['contact'] }}" >
+											</div>
+										</div>
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label>Occupation</label>
+                                                <input type="text" style="border: 3px solid black" class="form-control" readonly placeholder="Enter Occupation" name="occupation" id="occupation" value="{{ request.form['occupation'] or post['occupation'] }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label><b>Address</b></label>
+                                        <textarea class="form-control" style="border: 3px solid black" readonly name="address" placeholder="Enter Address" id="address" >{{ request.form['address'] or post['address'] }}</textarea>
+                                    </div>
+                                </div>
+                           <button type="submit" class="btn btn-primary" style="margin-left:380px; width: 300px">Back</button>
+                        </div>
+                      
+                            
+                          
+                        
+                        </form>						
+                   
+             
+       
+			</body>
+</html>
+{% endblock %}

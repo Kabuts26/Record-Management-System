@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{{ url_for('static', filename= 'css/sidebar.css') }}">
+<title>Barangay Resident Record Management Web Application</title>
+
+<style>
+.main-panel {
+	width: 80%;
+	height: auto;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 25%;
+  padding: 30 10px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}/* Float four columns side by side */
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 50px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  text-align: center;
+  background-color: #f1f1f1;
+}
+
+</style>
+
+<body>
+		<!--DASHBOARD-->
+		
+			<div class="main-panel" style="padding-top:10px; margin-right:300px">
+				<div class="panel-header" style="color:black; margin: 0 -25%; padding: 0 15%">
+					<div class="page-inner">
+						<div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
+							<div>
+								<h2 class="text-black fw-bold" style="font-size:45px;font-family:arial; margin-left:160px;margin-top:20px">DASHBOARD</h2>
+							</div>
+						</div>
+					</div>
+				</div>		
+
+	<table style="margin-top:40px; margin-left:80px; width: 100%">
+	
+		<!--POPULATION-->
+								<div class ="table-responsive">
+								<tr>
+									
+									<td><div class="card" style=" border: 3px solid green; height:170px; width: 380px">
+										<h2 style=" padding-top:20px; font-family:garamond"><center>POPULATION</center></h2>
+										<a href="tpopulation" style="color:black; font-family:garamond; font-size: 50px"><center>{{ total }}</center></a>
+									</div>
+									
+								</div></td>
+							
+		<!--SENIOR CITIZEN-->		
+							
+								<td><div class="card" style=" border: 3px solid #e6bc25; margin-left:30px; height:170px; width: 380px">
+									
+										<h2 style=" padding-top:20px; font-family:garamond"><center>SENIOR CITIZEN</center></h2>
+										
+										<a href="{{ url_for('tsenior')}}" style="color:black; font-family:garamond; font-size: 50px"><center>{{ senior }}</center></a>
+									
+								</div><td>
+				
+
+		<!--ADULTS-->
+							<td>
+									<div class="card" style=" border: 3px solid #ba6125; margin-left:30px; height:170px; width: 380px">
+										<h2 style=" padding-top:20px; font-family:garamond"><center>ADULTS</center></h2>
+										<a href="{{ url_for('tadult')}}" style="color:black; font-family:garamond; font-size: 50px"><center>{{ adults }}</center></a>
+									</div>		
+								</tr>
+		<!--CHILDREN-->	</td>
+					<tr>
+									<td><div class="card" style=" border: 3px solid pink; margin-top:30px; margin-top:50px; height:170px; width: 380px">
+										
+										<h2 style=" padding-top:20px; font-family:garamond"><center>CHILDREN</center></h2>										
+										<a href="{{ url_for('tchild')}}" style="color:black; font-family:garamond; font-size: 50px"><center>{{ children }}</center></a>
+										
+									</div></td>
+									
+		
+		<!--TEENAGERS-->		
+						
+									<td><div class="card" style=" border: 3px solid #2dc1cf; margin-left:30px; margin-top:50px; height:170px; width: 380px">
+									 
+										<h2 style=" padding-top:20px; font-family:garamond"><center>TEENAGERS</center></h2>
+										<a href="{{ url_for('tteen')}}" style="color:black; font-family:garamond; font-size: 50px"><center>{{ teens }}</center></a>
+										
+									</div>
+				</td>
+					</tr>
+				</table></div>
+</body>
+</html>
+		{% endblock %}
+		

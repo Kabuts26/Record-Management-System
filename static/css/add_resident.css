@@ -1,0 +1,83 @@
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+body{
+	display: flex;
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
+	background: linear gradient(135deg, #71b7e6, #9b59b6);
+}
+.container{
+	max-width: 700px;
+	width: 100%;
+	background: #fff;
+	padding: 25px 30px;
+}
+.container .title{
+	font-size: 25px;
+	font-weight: 500;
+	position: relative;
+	
+}
+.container form .resident-details{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+		
+}
+.container form .form-control{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+		
+}
+form  .resident-details .input-box{
+	margin-bottom: 15px;
+	width: calc(102% / 2 - 20px);	
+}
+.resident-details .input-box .details{
+	font-weight: 500;
+	margin-bottom: 5px;
+}
+
+.resident-details .input-box input{
+	height: 40px;
+	width: 100%;
+	outline: none;
+	border-radius:5px;
+	border: 1px solid #ccc;
+	padding-left: 15px;
+	font-size: 16px;
+	border-bottom-width: 2px;
+	transition: all 0.3s ease;
+}
+.resident-details .input-box textarea{
+	height: 40px;
+	width: 100%;
+	outline: none;
+	border-radius:5px;
+	border: 1px solid #ccc;
+	padding-left: 15px;
+	font-size: 16px;
+	border-bottom-width: 2px;
+	transition: all 0.3s ease;
+}
+.resident-details .input-box select{
+	height: 40px;
+	width: 100%;
+	outline: none;
+	border-radius:5px;
+	border: 1px solid #ccc;
+	padding-left: 15px;
+	font-size: 16px;
+	border-bottom-width: 2px;
+	transition: all 0.3s ease;
+}
+
+
+
